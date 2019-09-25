@@ -9,7 +9,7 @@ namespace _01_DatabaseFirst.ViewModels
 {
     public class SearchByLocation_VM
     {
-        [Required] 
+        [Required]
         [RegularExpression(@"[A-E]", ErrorMessage = "Must be between A and E")] 
         public string Row { get; set; }
 

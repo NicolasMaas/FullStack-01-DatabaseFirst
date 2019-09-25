@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using _01_DatabaseFirst.Models;
+using _01_DatabaseFirst.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,7 @@ namespace _01_DatabaseFirst
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IInventoryRepo, InventoryRepo>();
 
             var connectionString = Configuration.GetConnectionString("DefaultConnection"); 
             services.AddDbContext<SalesDBContext>(options => options.UseSqlServer(connectionString));
